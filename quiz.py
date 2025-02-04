@@ -1,10 +1,10 @@
 import random
 #list of questions ✅
 #store the answers ✅
-#randomly pick the questions
-#ask the questions
-#see if they are correct
-#keep tack of the score
+#randomly pick the questions ✅
+#ask the questions ✅
+#see if they are correct ✅
+#keep track of the score ✅
 #tell the user their score
 questions =  {"What is the keyword to define a function in Python?": "def",
     "Which data type is used to store True or False values?": "boolean",
@@ -26,5 +26,18 @@ def python_trivia_game():
     selected_questions = random.sample(questions_list, total_questions)
     
 
+    for index, question in enumerate(selected_questions):
+        print(f"{index + 1}. {question}")
+        user_answer = input("Your Answer: ").lower().strip()
+        
+        correct_answer = questions[question]
+
+        if user_answer == correct_answer.lower():
+            print("Correct!\n")
+            score += 1
+        else:
+            print(f"Wrong. The correct answer is: {correct_answer}.\n")
+
+    print(f"Game over! Your final score is: {score} /{total_questions}")
 
 python_trivia_game()
